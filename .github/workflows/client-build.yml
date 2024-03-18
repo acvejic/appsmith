@@ -1,6 +1,32 @@
 name: Client Build
 
 on:
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "This is the PR number in case the workflow is being called in a pull request"
+        required: false
+        type: number
+      skip-tests:
+        description: "This is a boolean value in case the workflow is being called in build deploy-preview"
+        required: false
+        type: string
+        default: "false"
+      check-test-files:
+        description: "This is a boolean value in case the workflow is being called in build deploy-preview"
+        required: false
+        type: string
+        default: "false"
+      branch:
+        description: "This is the branch to be used for the build."
+        required: false
+        type: string
+      ads-compliant-check:
+        description: "This is a boolean value in case the workflow is being called in build deploy-preview"
+        required: false
+        type: string
+        default: "true"
+          
   workflow_call:
     inputs:
       pr:
